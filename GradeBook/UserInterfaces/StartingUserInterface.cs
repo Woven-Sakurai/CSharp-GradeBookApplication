@@ -6,6 +6,8 @@ namespace GradeBook.UserInterfaces
     public static class StartingUserInterface
     {
         public static bool Quit = false;
+        private static bool isWeighted;
+
         public static void CommandLoop()
         {
             while (!Quit)
