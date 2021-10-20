@@ -6,6 +6,8 @@ namespace GradeBook.UserInterfaces
     public static class StartingUserInterface
     {
         public static bool Quit = false;
+        private static bool isWeighted;
+
         public static void CommandLoop()
         {
             while (!Quit)
@@ -43,9 +45,9 @@ namespace GradeBook.UserInterfaces
             var type = parts[2].ToLower();
             BaseGradeBook gradeBook;
             if (type == "standard")
-                gradeBook = new StandardGradeBook(name);
+                gradeBook = new StandardGradeBook(name, isWeighted);
             else if (type == "ranked")
-                gradeBook = new RankedGradeBook(name);
+                gradeBook = new RankedGradeBook(name, isWeighted);
             else
             {
                 Console.WriteLine("{0} is not a supported type of gradebook, please try again", type);
